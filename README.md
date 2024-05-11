@@ -28,4 +28,4 @@ Tailwind CSS: Styling and design components for modern aesthetics.
 
 > Contact
 
-For questions or support, please contact [shaynenguyen9@gmail.com].
+For questions or support, please contact shaynenguyen9@gmail.com .
