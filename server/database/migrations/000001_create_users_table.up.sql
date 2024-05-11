@@ -9,6 +9,7 @@ CREATE TABLE IF NOT EXISTS `users` (
   `address` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `gender` int DEFAULT '0',
   `birthday` date DEFAULT NULL,
+  `role` int NOT NULL DEFAULT '2',
   `phone` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `about` longtext COLLATE utf8mb4_unicode_ci,
   `password_reset_token` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
