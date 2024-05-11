@@ -1,6 +1,6 @@
 # Fateskink Personal Website
 
-> Welcome to Fateskink, a personal website project showcasing blog, profile, and more!
+Welcome to Fateskink, a personal website project showcasing blog, profile, and more!
 
 > Overview
 
@@ -18,13 +18,13 @@ Tailwind CSS: Styling and design components for modern aesthetics.
 
 #### Backend:
 
-GoLang
-GraphQL
+- GoLang
+- GraphQL
 
 #### Frontend:
 
-Vue.js 3
-Tailwind CSS
+- Vue.js 3
+- Tailwind CSS
 
 > Contact
 
