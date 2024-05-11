@@ -2,6 +2,8 @@ package main
 
 import (
 	"os"
+	"server/database"
+	"server/pkg/auths"
 	"server/pkg/initializers"
 	"server/pkg/logger"
 
@@ -14,10 +16,13 @@ func main() {
 
 	initializers.LoadEnv()
 
-	// db := database.InitDb()
-
+	db := database.InitDb()
 	r := gin.Default()
+
 	r.Use(initializers.CorsConfig())
 	r.Use(logger.Logger(logrus.New()), gin.Recovery())
-	// r.POST("/fateskinkGql", auths.JwtTokenCheck, auths.GinContextToContextMiddleware(), initializers.InsightGqlHandler(db))
+
+	r.POST("/fateskinkGql", auths.JwtTokenCheck, auths.GinContextToContextMiddleware(), initializers.FateskinkGqlHandler(db))
+
+	r.Run()
 }

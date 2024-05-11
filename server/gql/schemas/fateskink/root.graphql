@@ -1,0 +1,16 @@
+schema {
+  query: Query
+  mutation: Mutation
+}
+
+type Query {
+  # User(id: ID!): User!
+  # Users(input: PagyInput, query: UsersQuery): UserCollection!
+  # UsersAll(): [UsersAllInfo]
+}
+
+type Mutation {
+
+}
+
+scalar Time

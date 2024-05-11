@@ -1,0 +1,17 @@
+type SignIn {
+  token: String
+}
+
+type User {
+  id: ID
+  email: String
+  fullName: String
+  name: String
+  about: String
+  # avatarUrl: String
+  createdAt: Time
+  address: String
+  birthday: String
+  gender: String
+  phone: String
+}
