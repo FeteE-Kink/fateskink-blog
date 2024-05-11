@@ -32,6 +32,16 @@ type UserClaims struct {
 	jwt.RegisteredClaims
 }
 
+func (user *User) GenerateJwtClaims() (claims jwt.Claims) {
+	return UserClaims{
+		user.Id,
+		jwt.RegisteredClaims{
+			ExpiresAt: jwt.NewNumericDate(time.Now().Add(24 * time.Hour)),
+			IssuedAt:  jwt.NewNumericDate(time.Now()),
+		},
+	}
+}
+
 func (u *User) BeforeUpdate(tx *gorm.DB) (err error) {
 	if tx.Statement.Changed() {
 		tx.Statement.SetColumn("lock_version", u.LockVersion+1)

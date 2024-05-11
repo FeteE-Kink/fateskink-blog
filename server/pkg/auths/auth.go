@@ -6,7 +6,7 @@ import (
 	"server/exceptions"
 	"server/models"
 	"server/pkg/constants"
-	"server/pkg/jsonWebToken"
+	"server/pkg/helpers"
 	"server/repository"
 	"strings"
 
@@ -49,7 +49,7 @@ func extractBearerToken(header string) (string, error) {
 func parseToken(jwtToken string) (uid int32, err error) {
 	var userClaim models.UserClaims
 
-	decodedErr := jsonWebToken.DecodeJwtToken(jwtToken, &userClaim)
+	decodedErr := helpers.DecodeJwtToken(jwtToken, &userClaim)
 
 	if decodedErr != nil {
 		return 0, exceptions.NewUnauthorizedError("Bad jwt token")
