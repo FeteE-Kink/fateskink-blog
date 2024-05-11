@@ -1,10 +1,12 @@
 package models
 
 import (
+	"regexp"
 	"server/enums"
 	"time"
 
 	"github.com/golang-jwt/jwt/v5"
+	"gorm.io/gorm"
 )
 
 type User struct {
@@ -28,4 +30,28 @@ type User struct {
 type UserClaims struct {
 	Sub int32
 	jwt.RegisteredClaims
+}
+
+func (u *User) BeforeUpdate(tx *gorm.DB) (err error) {
+	if tx.Statement.Changed() {
+		tx.Statement.SetColumn("lock_version", u.LockVersion+1)
+	}
+
+	return
+}
+
+func (u *User) BeforeCreate(tx *gorm.DB) (err error) {
+	u.assignDefaultData()
+	return
+}
+
+func (u *User) assignDefaultData() (err error) {
+	re := regexp.MustCompile(`(.*)@`)
+	matches := re.FindStringSubmatch(u.Email)
+
+	if len(matches) >= 2 {
+		u.Name = matches[1]
+	}
+
+	return
 }
