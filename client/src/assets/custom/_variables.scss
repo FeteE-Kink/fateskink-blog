@@ -1,0 +1,127 @@
+$enable-shadows: true !default;
+$font-family-base: "M PLUS Rounded 1c", sans-serif;
+$primary: #e790ab;
+$primary-02: #FCC2D4;
+$primary-lighter: #fdf4f7;
+$success: #84ded9;
+$success-lighter: #d8f3f3;
+$success-02: #EBF9F9;
+$success-03: #81c7c0;
+
+$warning: #f2994a;
+$light: #d8f3f3;
+
+$purple: #e0b4f4;
+$purple-01: #F3E3FA;
+$purple-02: #f3e3fa;
+$purple-04: #9d6c9d;
+$pink-lighter: #f9e3ea;
+
+$gray-01: #707070;
+$gray-02: #838383;
+$gray-03: #c9c8c8;
+$gray-04: #f1f1f4;
+$gray-05: #e0e0e0;
+$gray-06: #d1d1d1;
+$gray-07: #b5b5b5;
+
+$dark-80: #4e4e4e;
+$dark-100: #222222;
+$dark-04: #a7a7a7;
+$dark-05: #f4f4f4;
+
+$azure: #84ded9;
+$azure-dark: #87cdcb;
+$azure-light: #d8f3f3;
+$azure-card: #f2fbfb;
+$azure-01: #eaf9f8;
+$azure-02: #baedea;
+$azure-03: #E3E9FA;
+$azure-04: #38b5bd;
+$azure-05: #92c8e0;
+$azure-06: #76abc3;
+$azure-07: #3cb1de;
+$azure-08: #0f8ebf;
+
+$pink: #e790ab;
+$pink-02: #db7799;
+$pink-03: #fccfdd;
+$pink-dark: #de8ba5;
+$pink-light: #fdf4f7;
+$pink-card: #f7d8e2;
+
+$red: #d95151;
+$red_01: #FAE3E3;
+
+$yellow: #f5d82b;
+$yellow-01: #fdfAe7;
+$yellow-02: #fce873;
+$yellow-03: #fef3c6;
+
+$border-radius: 5px;
+$input-color: #e58dab;
+
+$btn-line-height: 26px;
+$btn-padding-x: 40px;
+$btn-padding-y-lg: 16px;
+$btn-padding-x-lg: 80px;
+$btn-font-size-lg: 20px;
+$btn-line-height-lg: 30px;
+
+$input-bg: #f3f3f4;
+$input-padding-y: 0.875rem;
+$input-padding-x: 1.5625rem;
+$input-border-color: $input-bg;
+$input-box-shadow: none;
+$input-focus-bg: white;
+$input-focus-border-color: $primary;
+$input-focus-box-shadow: none;
+$input-transition: all 0.3s;
+$input-placeholder-color: rgba(
+  $color: $gray-02,
+  $alpha: 0.5,
+);
+
+$custom-control-indicator-border-width: 0;
+$custom-control-indicator-size: 1.25rem;
+$custom-control-indicator-box-shadow: none;
+$custom-control-indicator-bg: #e0e4e9;
+$custom-control-gutter: 1.125rem;
+
+$custom-select-padding-x: 1.125rem;
+$custom-select-bg-size: 10px 5px !default;
+$custom-select-indicator-color: $primary !default;
+$custom-select-indicator: url("data:image/svg+xml,%3Csvg width='10' height='6' viewBox='0 0 10 6' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M0 0.5L5 5.5L10 0.5L0 0.5Z' fill='#{$custom-select-indicator-color}'/%3E%3C/svg%3E%0A") !default;
+
+$dropdown-border-color: transparent;
+$dropdown-border-radius: 2 * $border-radius;
+$dropdown-min-width: 260px;
+$dropdown-padding-y: 24px;
+$dropdown-padding-x: 24px;
+$dropdown-spacer: 1rem;
+$dropdown-box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.15);
+
+$body-bg: #fdf7f9;
+$body-color: $gray-01;
+
+$rightsidebar-bg: #e0b4f4;
+$home-bg: #fdf7f9;
+
+$footer-bg: #2a2a2a;
+
+$theme-colors: () !default;
+$theme-colors: map-merge(
+  (
+    "gray-01": $gray-01,
+    "gray-02": $gray-02,
+    "gray-03": $gray-03,
+    "gray-04": $gray-04,
+    "gray-05": $gray-05,
+    "dark-04": $dark-04,
+    "dark-05": $dark-05,
+    "dark-80": $dark-80,
+    "dark-100": $dark-100,
+    "purple": $purple,
+  ),
+  $theme-colors
+);

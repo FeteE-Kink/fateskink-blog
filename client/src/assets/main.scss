@@ -1,0 +1,20 @@
+@import "md-editor-v3/lib/style.css";
+@import "md-editor-v3/lib/preview.css";
+// @import '@vueform/multiselect/dist/multiselect.css';
+@import "@vueform/multiselect/themes/tailwind.css";
+
+// ============Layout==========
+@import "./layout/index.scss";
+
+// ============Pages==========
+@import "./pages/index.scss";
+
+// ============Custom==========
+@import "./custom/index.scss";
+
+// ============Font============
+@import url("https://fonts.googleapis.com/css2?family=Quicksand:wght@400;600&display=swap");
+
+#app {
+  height: 100%;
+}
