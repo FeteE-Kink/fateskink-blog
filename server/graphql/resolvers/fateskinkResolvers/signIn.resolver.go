@@ -2,8 +2,8 @@ package fateskinkResolvers
 
 import (
 	"context"
-	"server/gql/gqlTypes/globalTypes"
-	fateskinkInputs "server/gql/inputs/feateskinkInputs"
+	"server/graphql/gqlTypes/globalTypes"
+	fateskinkInputs "server/graphql/inputs/feateskinkInputs"
 	"server/services"
 )
 

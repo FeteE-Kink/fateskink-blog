@@ -3,7 +3,7 @@ package initializers
 import (
 	"log"
 	"os"
-	"server/gql/resolvers/fateskinkResolvers"
+	"server/graphql/resolvers/fateskinkResolvers"
 
 	"github.com/gin-gonic/gin"
 	"github.com/graph-gophers/graphql-go"
@@ -12,7 +12,7 @@ import (
 )
 
 func FateskinkGqlHandler(db *gorm.DB) gin.HandlerFunc {
-	schema, err := fetchSchema("./gql/schemas/fateskink/")
+	schema, err := fetchSchema("./graphql/schemas/fateskink/")
 
 	if err != nil {
 		log.Fatalf("failed to get schema: %v", err)

@@ -1,12 +1,4 @@
 <template>
-  <img
-    alt="Fateskink logo"
-    src="./assets/logo.png"
-    class="centered-image"
-    style="width: 150px; height: 150px"
-  />
-  <!-- <HomePage msg="This is my own first fukin website" /> -->
-
   <component :is="layout">
     <router-view></router-view>
   </component>
