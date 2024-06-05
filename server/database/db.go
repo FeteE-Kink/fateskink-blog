@@ -50,14 +50,6 @@ func createLogger() logger.Interface {
 }
 
 func dbConnectionString() string {
-	// return fmt.Sprintf("%s:%s@tcp(%s:%s)/%s?parseTime=true&loc=Local",
-	// 	os.Getenv("DB_USERNAME"),
-	// 	os.Getenv("DB_PASSWORD"),
-	// 	os.Getenv("DB_HOST"),
-	// 	os.Getenv("DB_PORT"),
-	// 	os.Getenv("DB_DATABASE"),
-	// )
-
 	return fmt.Sprintf(
 		"host=%s port=%s user=%s password=%s dbname=%s sslmode=%s",
 		os.Getenv("POSTGRES_HOST"),
