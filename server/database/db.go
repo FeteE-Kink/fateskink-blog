@@ -6,7 +6,8 @@ import (
 	"os"
 	"time"
 
-	"gorm.io/driver/mysql"
+	// "gorm.io/driver/mysql"
+	"gorm.io/driver/postgres"
 	"gorm.io/gorm"
 	"gorm.io/gorm/logger"
 )
@@ -21,7 +22,10 @@ func InitDb() *gorm.DB {
 	var err error
 	newLogger := createLogger()
 
-	Db, err := gorm.Open(mysql.Open(dbConnectionString()), &gorm.Config{
+	// Db, err := gorm.Open(mysql.Open(dbConnectionString()), &gorm.Config{
+	// 	Logger: newLogger,
+	// })
+	Db, err := gorm.Open(postgres.Open(dbConnectionString()), &gorm.Config{
 		Logger: newLogger,
 	})
 
@@ -46,11 +50,20 @@ func createLogger() logger.Interface {
 }
 
 func dbConnectionString() string {
-	return fmt.Sprintf("%s:%s@tcp(%s:%s)/%s?parseTime=true&loc=Local",
-		os.Getenv("DB_USERNAME"),
-		os.Getenv("DB_PASSWORD"),
-		os.Getenv("DB_HOST"),
-		os.Getenv("DB_PORT"),
-		os.Getenv("DB_DATABASE"),
-	)
+	// return fmt.Sprintf("%s:%s@tcp(%s:%s)/%s?parseTime=true&loc=Local",
+	// 	os.Getenv("DB_USERNAME"),
+	// 	os.Getenv("DB_PASSWORD"),
+	// 	os.Getenv("DB_HOST"),
+	// 	os.Getenv("DB_PORT"),
+	// 	os.Getenv("DB_DATABASE"),
+	// )
+
+	return fmt.Sprintf(
+		"host=%s port=%s user=%s password=%s dbname=%s sslmode=%s",
+		os.Getenv("POSTGRES_HOST"),
+		os.Getenv("POSTGRES_PORT"),
+		os.Getenv("POSTGRES_USERNAME"),
+		os.Getenv("POSTGRES_PASSWORD"),
+		os.Getenv("POSTGRES_DATABASE_NAME"),
+		os.Getenv("POSTGRES_SSL_MODE"))
 }
