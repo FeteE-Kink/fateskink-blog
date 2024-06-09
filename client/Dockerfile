@@ -1,5 +1,8 @@
 # syntax=docker/dockerfile:1
-FROM node:20.12.0-alpine
+FROM node:20.12.0
+
+# Install xdg-utils for the xdg-open command
+RUN apt-get update && apt-get install -y xdg-utils
 
 WORKDIR /app
 
