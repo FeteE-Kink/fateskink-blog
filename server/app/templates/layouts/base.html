@@ -1,0 +1,17 @@
+{{define "base"}}
+<!doctype html>
+<html>
+  <head>
+    <title>{{.Title}}</title>
+    {{template "head" .}} {{template "metadata" .}}
+  </head>
+
+  <body>
+    {{template "content" .}}
+    <hr />
+    {{template "footer" .}}
+
+    <script src="/static/js/main.js"></script>
+  </body>
+</html>
+{{end}}

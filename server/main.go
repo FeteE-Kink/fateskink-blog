@@ -22,7 +22,12 @@ func main() {
 	r.Use(initializers.CorsConfig())
 	r.Use(logger.Logger(logrus.New()), gin.Recovery())
 
+	setupHTMLRouter(r)
 	r.POST("/fateskinkGql", auths.JwtTokenCheck, auths.GinContextToContextMiddleware(), initializers.FateskinkGqlHandler(db))
 
 	r.Run()
+}
+
+func setupHTMLRouter(r *gin.Engine) {
+
 }
