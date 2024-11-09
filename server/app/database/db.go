@@ -59,3 +59,16 @@ func dbConnectionString() string {
 		os.Getenv("POSTGRES_DATABASE_NAME"),
 		os.Getenv("POSTGRES_SSL_MODE"))
 }
+
+func CloseDb() error {
+	if Db != nil {
+		sqlDb, err := Db.DB()
+		if err != nil {
+			return err
+		}
+		log.Println("Closing database connection...")
+		return sqlDb.Close()
+	}
+
+	return nil
+}

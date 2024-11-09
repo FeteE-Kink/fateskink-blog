@@ -35,3 +35,11 @@ func DecodeJwtToken(tokenString string, userClaim *models.UserClaims) error {
 
 	return nil
 }
+
+func GetEnv(key, fallback string) string {
+	if value, exists := os.LookupEnv(key); exists {
+		return value
+	}
+
+	return fallback
+}
