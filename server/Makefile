@@ -1,4 +1,4 @@
-MIGRATIONS_FOLDER = $(PWD)/database/migrations
+MIGRATIONS_FOLDER = $(PWD)/app/database/migrations
 DB_USERNAME=root
 DB_HOST=127.0.0.1
 DB_PORT=3306

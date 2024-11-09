@@ -2,12 +2,12 @@ package auths
 
 import (
 	"context"
-	"server/database"
-	"server/exceptions"
-	"server/models"
-	"server/pkg/constants"
-	"server/pkg/helpers"
-	"server/repository"
+	"server/app/database"
+	"server/app/exceptions"
+	"server/app/models"
+	"server/app/pkg/constants"
+	"server/app/pkg/helpers"
+	"server/app/repository"
 	"strings"
 
 	"github.com/gin-gonic/gin"

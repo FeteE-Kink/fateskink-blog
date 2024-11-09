@@ -3,7 +3,7 @@ package repository
 import (
 	"context"
 	"errors"
-	"server/models"
+	"server/app/models"
 
 	"golang.org/x/crypto/bcrypt"
 	"gorm.io/gorm"

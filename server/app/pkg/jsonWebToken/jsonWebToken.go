@@ -3,7 +3,7 @@ package jsonWebToken
 import (
 	"errors"
 	"os"
-	"server/models"
+	"server/app/models"
 
 	"github.com/golang-jwt/jwt/v5"
 )

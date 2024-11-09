@@ -2,10 +2,10 @@ package services
 
 import (
 	"context"
-	"server/exceptions"
-	"server/models"
-	"server/pkg/helpers"
-	"server/repository"
+	"server/app/exceptions"
+	"server/app/models"
+	"server/app/pkg/helpers"
+	"server/app/repository"
 
 	"gorm.io/gorm"
 )

@@ -2,7 +2,7 @@ package exceptions
 
 import (
 	"fmt"
-	"server/pkg/constants"
+	"server/app/pkg/constants"
 )
 
 // ResourceModifyErrors represents errors associated with modifying a resource.

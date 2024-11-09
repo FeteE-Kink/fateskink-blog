@@ -1,7 +1,7 @@
 package models
 
 import (
-	"server/pkg/utilities"
+	"server/app/pkg/utilities"
 	"time"
 )
 

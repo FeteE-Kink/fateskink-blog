@@ -2,7 +2,7 @@ package models
 
 import (
 	"regexp"
-	"server/enums"
+	"server/app/enums"
 	"time"
 
 	"github.com/golang-jwt/jwt/v5"

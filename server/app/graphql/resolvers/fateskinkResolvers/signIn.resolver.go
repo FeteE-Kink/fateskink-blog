@@ -2,9 +2,9 @@ package fateskinkResolvers
 
 import (
 	"context"
-	"server/graphql/gqlTypes/globalTypes"
-	fateskinkInputs "server/graphql/inputs/feateskinkInputs"
-	"server/services"
+	"server/app/graphql/gqlTypes/globalTypes"
+	fateskinkInputs "server/app/graphql/inputs/feateskinkInputs"
+	"server/app/services"
 )
 
 func (r *Resolver) SignIn(ctx context.Context, args fateskinkInputs.SignInInput) (*globalTypes.SignInType, error) {

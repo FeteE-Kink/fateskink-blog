@@ -2,10 +2,10 @@ package main
 
 import (
 	"os"
-	"server/database"
-	"server/pkg/auths"
-	"server/pkg/initializers"
-	"server/pkg/logger"
+	"server/app/database"
+	"server/app/pkg/auths"
+	"server/app/pkg/initializers"
+	"server/app/pkg/logger"
 
 	"github.com/gin-gonic/gin"
 	"github.com/sirupsen/logrus"

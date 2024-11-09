@@ -2,7 +2,7 @@ package exceptions
 
 import (
 	"fmt"
-	"server/pkg/constants"
+	"server/app/pkg/constants"
 )
 
 // RecordNotFoundError represents a record not found error.
