@@ -11,6 +11,7 @@ import (
 func RegisterRestRoutes(r *gin.Engine) {
 	r.GET("healthz", healthCheck)
 	r.GET("/", controllers.HomeController)
+	r.GET("/signin", controllers.SignInController)
 
 	rest.UploadRoutes(r)
 }
