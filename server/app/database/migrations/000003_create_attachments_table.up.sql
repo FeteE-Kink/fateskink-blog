@@ -1,5 +1,5 @@
 -- Set timezone
-SET timezone = 'Asia/Bangkok';
+SET timezone = 'Asia/Ho_Chi_Minh';
 
 -- Name: attachments; Type: TABLE; Schema: public; Owner: -
 CREATE TABLE IF NOT EXISTS attachments (

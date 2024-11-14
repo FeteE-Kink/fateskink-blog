@@ -1,8 +1,8 @@
 -- Set timezone
-SET timezone = 'Asia/Bangkok';
+SET timezone = 'Asia/Ho_Chi_Minh';
 
--- Name: blog_posts; Type: TABLE; Schema: public; Owner: -
-CREATE TABLE IF NOT EXISTS blog_posts (
+-- Name: articles; Type: TABLE; Schema: public; Owner: -
+CREATE TABLE IF NOT EXISTS articles (
   id BIGSERIAL PRIMARY KEY,
   title VARCHAR(255) NOT NULL,
   content TEXT NOT NULL,
@@ -13,3 +13,5 @@ CREATE TABLE IF NOT EXISTS blog_posts (
   created_at TIMESTAMPTZ(6) NOT NULL,
   updated_at TIMESTAMPTZ(6) NOT NULL
 );
+
+CREATE INDEX IF NOT EXISTS articles_title_idx ON articles (title);

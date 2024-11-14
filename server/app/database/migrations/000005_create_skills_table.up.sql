@@ -1,11 +1,12 @@
 -- Set timezone
-SET timezone = 'Asia/Bangkok';
+SET timezone = 'Asia/Ho_Chi_Minh';
 
--- Name: blog_posts; Type: TABLE; Schema: public; Owner: -
+-- Name: articles; Type: TABLE; Schema: public; Owner: -
 CREATE TABLE IF NOT EXISTS skills (
   id BIGSERIAL PRIMARY KEY,
   name VARCHAR(255) NOT NULL,
-  description TEXT NOT NULL,
+  content TEXT NOT NULL,
+  user_id bigint NOT NULL,
   lock_version INT DEFAULT NULL,
   created_at TIMESTAMPTZ(6) NOT NULL,
   updated_at TIMESTAMPTZ(6) NOT NULL

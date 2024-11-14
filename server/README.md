@@ -15,7 +15,7 @@ brew install golang-migrate
 ## Create new migration
 
 ```bash
-migrate create -ext sql -dir database/migrations -seq create_users_table
+migrate create -ext sql -dir app/database/migrations -seq create_users_table
 ```
 
 ## Migrate

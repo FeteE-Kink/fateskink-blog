@@ -1,1 +1,1 @@
--- DROP TABLE IF EXISTS attachment_blobs;
+DROP TABLE IF EXISTS attachment_blobs;
