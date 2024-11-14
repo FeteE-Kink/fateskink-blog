@@ -13,6 +13,7 @@ func CorsConfig() gin.HandlerFunc {
 		AllowMethods:     []string{"PUT", "PATCH", "POST"},
 		AllowHeaders:     []string{"*"},
 		AllowCredentials: true,
+		ExposeHeaders:    []string{"Content-Length"},
 		MaxAge:           12 * time.Hour,
 	})
 }

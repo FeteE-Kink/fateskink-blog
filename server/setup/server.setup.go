@@ -43,7 +43,6 @@ func WaitForShutDown(srv *http.Server) {
 	quit := make(chan os.Signal, 1)
 	signal.Notify(quit, syscall.SIGINT, syscall.SIGTERM)
 	<-quit
-
 	log.Println("Shutting down server...")
 
 	ctx, cancel := context.WithTimeout(context.Background(), shutDownTimeout)

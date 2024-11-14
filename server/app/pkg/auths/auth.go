@@ -31,6 +31,8 @@ func JwtTokenCheck(c *gin.Context) {
 			c.Set(constants.ContextCurrentUser, user)
 		}
 	}
+
+	c.Next()
 }
 
 func extractBearerToken(header string) (string, error) {

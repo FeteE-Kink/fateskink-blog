@@ -5,6 +5,10 @@ schema {
 
 type Query {}
 
+type SignIn {
+  token: String
+}
+
 type Mutation {
   SignIn(email: String!, password: String!): SignIn!
 }

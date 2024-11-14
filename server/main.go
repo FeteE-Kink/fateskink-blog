@@ -6,9 +6,19 @@ import (
 )
 
 func main() {
-	os.Setenv("TZ", "Asia/Ho_Chi_Minh")
+	os.Setenv("TZ", "UTC")
 
 	setup.InitEnvironment()
+
+	// r := gin.Default()
+
+	// r.POST("/fateskinkGql",
+	// 	auths.GinContextToContextMiddleware(),
+	// 	auths.JwtTokenCheck,
+	// 	initializers.FateskinkGqlHandler(database.Db),
+	// )
+
+	// r.Run()
 	server := setup.InitServer()
 
 	go setup.StartServer(server)

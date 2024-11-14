@@ -1,6 +1,7 @@
 package initializers
 
 import (
+	_ "embed"
 	"log"
 	"os"
 	"server/app/graphql/resolvers/fateskinkResolvers"
@@ -21,7 +22,7 @@ func FateskinkGqlHandler(db *gorm.DB) gin.HandlerFunc {
 	opts := []graphql.SchemaOpt{graphql.UseStringDescriptions(), graphql.UseFieldResolvers()}
 	gqlSchema := graphql.MustParseSchema(schema, &fateskinkResolvers.Resolver{Db: db}, opts...)
 
-	return ginSchemaHandler(schema, db, gqlSchema)
+	return ginSchemaHandler(gqlSchema)
 }
 
 func fetchSchema(schemaPath string) (string, error) {
@@ -45,7 +46,7 @@ func fetchSchema(schemaPath string) (string, error) {
 	return string(schemaContent), nil
 }
 
-func ginSchemaHandler(schema string, db *gorm.DB, gqlSchema *graphql.Schema) gin.HandlerFunc {
+func ginSchemaHandler(gqlSchema *graphql.Schema) gin.HandlerFunc {
 	handler := &relay.Handler{Schema: gqlSchema}
 
 	return func(c *gin.Context) {

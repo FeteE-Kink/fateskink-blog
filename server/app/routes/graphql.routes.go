@@ -10,8 +10,8 @@ import (
 
 func RegisterGraphQLRouter(r *gin.Engine) {
 	r.POST("/fateskinkGql",
-		auths.JwtTokenCheck,
 		auths.GinContextToContextMiddleware(),
+		auths.JwtTokenCheck,
 		initializers.FateskinkGqlHandler(database.Db),
 	)
 }

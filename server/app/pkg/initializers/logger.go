@@ -4,7 +4,6 @@ import (
 	"bytes"
 	"encoding/json"
 	"fmt"
-	"io"
 	"os"
 	"regexp"
 	"runtime"
@@ -103,15 +102,15 @@ func handleLogging(ctx *gin.Context) {
 	reqMethod := ctx.Request.Method
 	headers := filterHeaders(ctx.Request.Header)
 
-	body, _ := io.ReadAll(ctx.Request.Body)
-	blurredBody := blurSensitiveData(string(body))
+	// body, _ := io.ReadAll(ctx.Request.Body)
+	// blurredBody := blurSensitiveData(string(body))
 
 	logRequestDetails(ctx, "Recieved Request", log.Fields{
 		"ClientIP": clientIP,
 		"Method":   reqMethod,
 		"URI":      ctx.Request.RequestURI,
 		"Headers":  headers,
-		"Body":     prettifyJSON(blurredBody),
+		// "Body":     prettifyJSON(blurredBody),
 	})
 }
 
