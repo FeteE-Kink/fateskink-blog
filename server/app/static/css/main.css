@@ -1,5 +1,7 @@
 body {
   font-family: Monaco, Arial, sans-serif;
+  background-color: #121212; /* Màu nền tối */
+  color: #e0e0e0;
 }
 
 .header {

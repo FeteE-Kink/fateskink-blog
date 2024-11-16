@@ -13,16 +13,29 @@
         margin: 0;
         padding: 0;
         background-color: #f0f8f0;
+        height: 100%;
       }
       header {
-        background-color: #4caf50;
+        background-color: #1e1e1e;
         color: white;
         padding: 20px;
         text-align: center;
+        border-bottom: 1px solid #ddd;
       }
+
       h1 {
         margin: 0;
       }
+
+      h3 {
+        margin: 10px 0;
+      }
+
+      h1,
+      h3 {
+        color: #76ff03;
+      }
+
       .content {
         padding: 20px;
         text-align: center;
@@ -38,19 +51,28 @@
       .button:hover {
         background-color: #45a049;
       }
+
       footer {
-        background-color: #4caf50;
+        background-color: #1e1e1e;
         color: white;
         text-align: center;
         padding: 10px;
-        position: fixed;
+        position: relative;
         width: 100%;
         bottom: 0;
+        border-top: 1px solid #ddd;
+      }
+
+      footer #copy-right {
+        color: #76ff03;
       }
     </style>
   </head>
   <body>
-    {{template "head" .}} {{template "metadata" .}} {{template "footer" .}}
+    <!-- header -->
+    {{template "head" .}}
+    <!-- metadata -->
+    {{template "metadata" .}}
   </body>
 </html>
 {{end}}
