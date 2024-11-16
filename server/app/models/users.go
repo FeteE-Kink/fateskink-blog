@@ -2,7 +2,6 @@ package models
 
 import (
 	"regexp"
-	"server/app/enums"
 	"time"
 
 	"github.com/golang-jwt/jwt/v5"
@@ -17,7 +16,6 @@ type User struct {
 	LockVersion       int32
 	Name              string
 	Gender            int32
-	Role              enums.UserRole
 	Avatar            *Attachment `gorm:"polymorphic:Owner;polymorphicValue:User"`
 	About             *string
 	CreatedAt         time.Time
