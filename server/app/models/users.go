@@ -13,9 +13,8 @@ type User struct {
 	Email             string
 	EncryptedPassword string
 	FullName          string
-	LockVersion       int32
 	Name              string
-	Gender            int32
+	Gender            *int32
 	Avatar            *Attachment `gorm:"polymorphic:Owner;polymorphicValue:User"`
 	About             *string
 	CreatedAt         time.Time
@@ -40,13 +39,13 @@ func (user *User) GenerateJwtClaims() (claims jwt.Claims) {
 	}
 }
 
-func (u *User) BeforeUpdate(tx *gorm.DB) (err error) {
-	if tx.Statement.Changed() {
-		tx.Statement.SetColumn("lock_version", u.LockVersion+1)
-	}
+// func (u *User) BeforeUpdate(tx *gorm.DB) (err error) {
+// 	if tx.Statement.Changed() {
+// 		tx.Statement.SetColumn("lock_version", u.LockVersion+1)
+// 	}
 
-	return
-}
+// 	return
+// }
 
 func (u *User) BeforeCreate(tx *gorm.DB) (err error) {
 	u.assignDefaultData()

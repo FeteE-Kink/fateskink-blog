@@ -15,17 +15,24 @@ POSTGRES_SSL_MODE ?= disable
 
 DB_URL=postgres://$(POSTGRES_USERNAME):$(POSTGRES_PASSWORD)@$(POSTGRES_HOST):$(POSTGRES_PORT)/$(POSTGRES_DATABASE_NAME)?sslmode=$(POSTGRES_SSL_MODE)
 
-db.create:
+cmd-exists-%:
+	@hash $(*) > /dev/null 2>&1 || \
+	   (echo "ERROR: '$(*)' Must be installed  and available on your PATH."; exit 1)
+
+db.create: cmd-exists-migrate
 	createdb --username=$(POSTGRES_USERNAME) --owner=$(POSTGRES_USERNAME) ${POSTGRES_DATABASE_NAME}
 
-db.drop:
+db.drop: cmd-exists-migrate
 	dropdb --username=$(POSTGRES_USERNAME) ${POSTGRES_DATABASE_NAME}
 
-db.migrate.rollback:
+db.migrate.rollback: cmd-exists-migrate
 	migrate -path $(MIGRATIONS_FOLDER) -database "$(DB_URL)" --verbose down ${STEP}
 
-db.migrate:
+db.migrate: cmd-exists-migrate
 	migrate -path $(MIGRATIONS_FOLDER) -database "$(DB_URL)" --verbose up
 
-db.migrate.force:
+db.migrate.force: cmd-exists-migrate
 	migrate -path $(MIGRATIONS_FOLDER) -database "$(DB_URL)" --verbose force $(VERSION)
+
+db.seed: cmd-exists-migrate
+	go run app/pkg/initializers/seeds/tasks/main.go

@@ -10,15 +10,6 @@ func main() {
 
 	setup.InitEnvironment()
 
-	// r := gin.Default()
-
-	// r.POST("/fateskinkGql",
-	// 	auths.GinContextToContextMiddleware(),
-	// 	auths.JwtTokenCheck,
-	// 	initializers.FateskinkGqlHandler(database.Db),
-	// )
-
-	// r.Run()
 	server := setup.InitServer()
 
 	go setup.StartServer(server)

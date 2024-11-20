@@ -12,6 +12,10 @@ import (
 	"gorm.io/gorm/logger"
 )
 
+type DbLogger struct {
+	logger.Interface
+}
+
 var Db *gorm.DB
 
 func InitDb() *gorm.DB {
@@ -25,9 +29,13 @@ func InitDb() *gorm.DB {
 	// Db, err := gorm.Open(mysql.Open(dbConnectionString()), &gorm.Config{
 	// 	Logger: newLogger,
 	// })
-	Db, err := gorm.Open(postgres.Open(dbConnectionString()), &gorm.Config{
+	Db, err = gorm.Open(postgres.Open(dbConnectionString()), &gorm.Config{
 		Logger: newLogger,
 	})
+
+	if err != nil {
+		log.Fatalf("Failed to migrate database: %v", err)
+	}
 
 	if err != nil {
 		log.Fatalf("Error connecting to database: %v", err)
@@ -37,7 +45,7 @@ func InitDb() *gorm.DB {
 }
 
 func createLogger() logger.Interface {
-	return logger.New(
+	baseLogger := logger.New(
 		log.New(os.Stdout, "\r\n", log.LstdFlags), // io writer
 		logger.Config{
 			SlowThreshold:             time.Second, // Slow SQL threshold
@@ -47,6 +55,8 @@ func createLogger() logger.Interface {
 			Colorful:                  true,        // Enable color
 		},
 	)
+
+	return &DbLogger{Interface: baseLogger}
 }
 
 func dbConnectionString() string {

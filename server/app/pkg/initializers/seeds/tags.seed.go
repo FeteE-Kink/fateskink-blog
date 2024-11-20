@@ -1,0 +1,3 @@
+package seeds
+
+func TagSeed() {}
