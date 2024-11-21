@@ -19,9 +19,9 @@ func main() {
 
 func SeedCore() {
 	seeds.UserSeed()
+	seeds.TagSeed()
 }
 
 func SeedDev() {
-	seeds.TagSeed()
 	seeds.ArticleSeed()
 }
