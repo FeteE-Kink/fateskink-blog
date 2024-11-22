@@ -3,6 +3,7 @@ package seeds
 import (
 	"server/app/database"
 	"server/app/models"
+	"server/app/pkg/helpers"
 
 	"gorm.io/gorm"
 )
@@ -23,10 +24,10 @@ func UserSeed() {
 
 	// password: 12341234
 	user := models.User{
-		Email:             "admin@example.com",
+		Email:             helpers.GetEnv("ADMIN_EMAIL", "admin@example.com"),
 		EncryptedPassword: "$2a$10$8080LRcosHOEqh6kpHbQie/vgubdGQkXIvPQUkAaCzGZCs6FMsmc6",
 		Name:              "Admin",
-		FullName:          "Fateskink",
+		FullName:          "Admin",
 	}
 
 	database.Session(&gorm.Session{SkipHooks: true}).Create(&user)
