@@ -7,5 +7,5 @@ import (
 )
 
 func SignInController(c *gin.Context) {
-	c.HTML(http.StatusOK, "signin.html", nil)
+	c.HTML(http.StatusOK, "signin.html", NewMetadata(nil, nil))
 }

@@ -1,5 +1,4 @@
 {{template "base" .}}
-
 <!-- page content -->
 <session id="sigin-sesion">
   <div class="login-form">
@@ -24,14 +23,14 @@
     const password = srcElement.querySelector("#password").value;
 
     const query = `
-        mutation {
-            SignIn(email: "${email}", password: "${password}") {
-                token
-            }
-        }
-    `;
+          mutation {
+              SignIn(email: "${email}", password: "${password}") {
+                  token
+              }
+          }
+      `;
 
-    const response = await fetch("http://localhost:3007/fateskinkGql", {
+    const response = await fetch(`${BASE_URL}fateskinkGql`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -46,10 +45,10 @@
 
     const { data } = await response.json();
     if (data) {
-      const signInResponse = data.signIn;
+      const signInResponse = data.SignIn;
 
       if (signInResponse) {
-        alert(`Welcome, ${signInResponse.user.email}!`);
+        alert(`Welcome to this fucking good website!`);
       } else {
         alert("Login failed!");
       }
