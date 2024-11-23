@@ -29,6 +29,8 @@ const (
 	DateTimeZoneFormat       = "2006-01-02 15:04:05 -0700"
 	HUMAN_DateTimeZoneFormat = "%d-%m-%y %H:%M -%Z"
 
+	YYYYMMDD_HHMMSS_DateTimeFormat = "2006-01-02 15:04:05"
+
 	DDMMYYY_HHMM_DateFormat       = "2-1-2006 15:04"
 	HUMAN_DDMMYYY_HHMM_DateFormat = "%d-%m-%y %H:%M"
 	MMDD_DateFormatForChart       = "Jan 02"

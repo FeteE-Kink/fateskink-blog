@@ -5,7 +5,7 @@ import (
 	"math/rand"
 	"server/app/database"
 	"server/app/models"
-	"server/app/pkg/uuid"
+	"server/app/pkg/helpers"
 
 	"github.com/brianvoe/gofakeit/v6"
 	"gorm.io/gorm"
@@ -37,7 +37,7 @@ func ArticleSeed() {
 		article := models.Article{
 			Title:   gofakeit.Sentence(rand.Intn(10) + 6),
 			Content: gofakeit.Paragraph(rand.Intn(10)+6, rand.Intn(10)+6, rand.Intn(100)+6, "\n\n"),
-			Slug:    uuid.NewUUID(),
+			Slug:    helpers.NewUUID(),
 			UserId:  user.Id,
 		}
 
