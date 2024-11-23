@@ -1,4 +1,4 @@
-package fateskinkInputs
+package globalInputs
 
 type SignInInput struct {
 	Email    string

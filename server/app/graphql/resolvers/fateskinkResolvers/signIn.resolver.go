@@ -3,11 +3,11 @@ package fateskinkResolvers
 import (
 	"context"
 	"server/app/graphql/gqlTypes/globalTypes"
-	fateskinkInputs "server/app/graphql/inputs/feateskinkInputs"
+	"server/app/graphql/inputs/globalInputs"
 	"server/app/services"
 )
 
-func (r *Resolver) SignIn(ctx context.Context, args fateskinkInputs.SignInInput) (*globalTypes.SignInType, error) {
+func (r *Resolver) SignIn(ctx context.Context, args globalInputs.SignInInput) (*globalTypes.SignInType, error) {
 	service := services.AuthService{
 		Email:    args.Email,
 		Password: args.Password,

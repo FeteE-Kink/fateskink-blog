@@ -1,4 +1,4 @@
-package gqlInput
+package globalInputs
 
 import "server/app/models"
 

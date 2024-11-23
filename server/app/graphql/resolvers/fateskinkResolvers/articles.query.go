@@ -4,13 +4,13 @@ import (
 	"context"
 	fateskinktypes "server/app/graphql/gqlTypes/fateskinkTypes"
 	"server/app/graphql/gqlTypes/globalTypes"
-	gqlInput "server/app/graphql/inputs"
+	"server/app/graphql/inputs/globalInputs"
 	"server/app/models"
 	"server/app/repository"
 )
 
 func (r *Resolver) Articles(
-	ctx context.Context, args gqlInput.ArtilcesInput,
+	ctx context.Context, args globalInputs.ArtilcesInput,
 ) (
 	*fateskinktypes.ArticlesCollectionPayloadType, error,
 ) {

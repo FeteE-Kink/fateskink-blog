@@ -2,7 +2,7 @@ package repository
 
 import (
 	"fmt"
-	gqlInput "server/app/graphql/inputs"
+	"server/app/graphql/inputs/globalInputs"
 	"server/app/models"
 	"server/app/pkg/pagination"
 	"strings"
@@ -25,7 +25,7 @@ func NewArticleRepository(db *gorm.DB) *ArticleRepository {
 func (r *ArticleRepository) List(
 	articles *[]*models.Article,
 	paginationData *models.PaginationData,
-	query *gqlInput.ArticlesQueryInput,
+	query *globalInputs.ArticlesQueryInput,
 ) error {
 	dbTables := r.db.Model(&models.Article{})
 
