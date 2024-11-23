@@ -20,7 +20,7 @@ type ArtilcesInput struct {
 type ArticlesQueryInput struct {
 	TitleCont     *string
 	SlugCont      *string
-	TagIn         *[]int32
+	TagIn         *[]*int32
 	CreatedAtGteq *string
 	CreatedAtLteq *string
 }

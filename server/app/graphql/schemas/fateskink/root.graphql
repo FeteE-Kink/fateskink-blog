@@ -3,7 +3,12 @@ schema {
   mutation: Mutation
 }
 
-type Query {}
+type Query {
+  articles(
+    input: pagyInput
+    query: articlesQueryInput
+  ): articlesCollectionPayload!
+}
 
 type Mutation {
   SignIn(email: String!, password: String!): SignIn!

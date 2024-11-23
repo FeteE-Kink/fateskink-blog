@@ -1,0 +1,16 @@
+type articlesCollectionPayload {
+  collection: [articlePayload!]
+  metadata: metadata!
+}
+
+type articlePayload {
+  id: ID!
+}
+
+input articlesQueryInput {
+  titleCont: String
+  slugCont: String
+  tagIn: [Int]
+  createdAtGteq: String
+  createdAtLteq: String
+}

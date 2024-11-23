@@ -13,6 +13,14 @@ func (mt *MetadataPayloadType) Total() *int32 {
 	return helpers.Int32Pointer(mt.Metadata.Total)
 }
 
+func (mt *MetadataPayloadType) Page() *int32 {
+	return helpers.Int32Pointer(int32(mt.Metadata.Page))
+}
+
+func (mt *MetadataPayloadType) Pages() *int32 {
+	return helpers.Int32Pointer(int32(mt.Metadata.Pages))
+}
+
 func (mt *MetadataPayloadType) PerPage() *int32 {
 	return helpers.Int32Poiter(int32(mt.Metadata.PerPage))
 }
