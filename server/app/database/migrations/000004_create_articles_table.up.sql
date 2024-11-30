@@ -8,6 +8,7 @@ CREATE TABLE IF NOT EXISTS articles (
   content TEXT NOT NULL,
   user_id BIGINT NOT NULL,
   slug VARCHAR(255) NOT NULL,
+  status INT NOT NULL DEFAULT 0,
   favorites_count INT NOT NULL DEFAULT 0,
   lock_version INT DEFAULT NULL,
   created_at TIMESTAMPTZ(6) NOT NULL,

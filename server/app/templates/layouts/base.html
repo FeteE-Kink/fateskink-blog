@@ -77,6 +77,17 @@
 
   <script>
     const BASE_URL = "{{.BaseUrl}}";
+    const METADATA = `metadata {
+                                  total
+                                  perPage
+                                  page
+                                  pages
+                                  count
+                                  next
+                                  prev
+                                  from
+                                  to
+                              }`;
   </script>
 </html>
 {{end}}

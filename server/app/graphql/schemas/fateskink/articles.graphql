@@ -5,6 +5,9 @@ type articlesCollectionPayload {
 
 type articlePayload {
   id: ID!
+  title: String!
+  content: String!
+  previewContent: String!
 }
 
 input articlesQueryInput {
