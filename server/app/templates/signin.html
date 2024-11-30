@@ -3,7 +3,7 @@
 <session id="sigin-sesion">
   <div class="login-form">
     <h2>Sign In</h2>
-    <form onsubmit="return SignIn(event)">
+    <form onsubmit="return signIn(event)">
       <label for="email">Email:</label>
       <input type="email" id="email" name="email" required />
 
@@ -15,13 +15,29 @@
   </div>
 </session>
 
+<div
+  id="toast"
+  style="
+    display: none;
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: #333;
+    color: white;
+    padding: 10px;
+    border-radius: 5px;
+    z-index: 1000;
+  "
+>
+  Welcome to this fucking good website!
+</div>
+
 <script>
-  async function SignIn(event) {
+  async function signIn(event) {
     event.preventDefault();
     const srcElement = event.srcElement;
     const email = srcElement.querySelector("#email").value;
     const password = srcElement.querySelector("#password").value;
-
     const query = `
           mutation {
               SignIn(email: "${email}", password: "${password}") {
@@ -30,28 +46,35 @@
           }
       `;
 
-    const response = await fetch(`${BASE_URL}fateskinkGql`, {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({ query }),
-    });
+    try {
+      const requestOptions = {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ query }),
+      };
 
-    if (!response.ok) {
-      console.error("Network response was not ok", response.statusText);
-      return;
-    }
+      const response = await executeApi(
+        `${BASE_URL}fateskinkGql`,
+        requestOptions,
+      );
+      const data = response.data;
 
-    const { data } = await response.json();
-    if (data) {
-      const signInResponse = data.SignIn;
+      if (data) {
+        const signInResponse = data.SignIn;
 
-      if (signInResponse) {
-        alert(`Welcome to this fucking good website!`);
+        if (signInResponse) {
+          localStorage.setItem("authToken", signInResponse.token);
+          window.location.href = "/";
+        } else {
+          alert("Login failed!\nInvalid response data!");
+        }
       } else {
         alert("Login failed!");
       }
+    } catch (error) {
+      alert(`Bad request!\n ${error}`);
     }
   }
 </script>

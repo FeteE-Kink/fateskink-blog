@@ -1,7 +1,5 @@
 {{template "base" .}}
 
-<!-- page content -->
-
 <div class="content">
   <session class="list"><div id="articles"></div></session>
 
@@ -33,21 +31,16 @@
       input: input,
       query: queryParams,
     };
-
-    const response = await fetch(`${BASE_URL}fateskinkGql`, {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
+    const requestOptions = {
       body: JSON.stringify({ query: articleQuery, variables: variables }),
-    });
+    };
 
-    if (!response.ok) {
-      console.error("Network response was not ok", response.statusText);
-      return;
-    }
+    const response = await executeApi(
+      `${BASE_URL}fateskinkGql`,
+      requestOptions,
+    );
+    const data = response.data;
 
-    const { data } = await response.json();
     if (data) {
       totalPages = data.articles.metadata.pages;
       articles = data.articles.collection;
@@ -78,7 +71,6 @@
 
   async function fetchArticleList(input, queryParams) {
     await fetchArticles(input, queryParams);
-
     displayArticles();
   }
 
@@ -86,13 +78,8 @@
     paginationContainer = document.getElementById("pagination");
     paginationContainer.innerHTML = ""; // Clear existing pagination
 
-    // Previous button
     handlePrevButton();
-
-    // Page buttons
     handlePageButton();
-
-    // Next button
     handleNextButton();
   }
 
