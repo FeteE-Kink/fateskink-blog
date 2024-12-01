@@ -87,6 +87,12 @@ func (r *ArticleRepository) createdAtLteq(createdAtLteq *string) func(db *gorm.D
 	}
 }
 
+func (r *ArticleRepository) Find(article *models.Article) error {
+	dbTables := r.db.Model(&models.Article{})
+
+	return dbTables.Where(&article).First(&article).Error
+}
+
 // func (r *ArticleRepository) tagIn(tagIn *[]int32) func(db *gorm.DB) *gorm.DB {
 // 	return func(db *gorm.DB) *gorm.DB {
 // 		if tagIn == nil {

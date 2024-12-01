@@ -8,6 +8,7 @@ type Query {
     input: pagyInput
     query: articlesQueryInput
   ): articlesCollectionPayload!
+  article(id: ID!): articlePayload!
 }
 
 type Mutation {
