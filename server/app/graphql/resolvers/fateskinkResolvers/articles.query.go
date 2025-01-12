@@ -2,6 +2,7 @@ package fateskinkResolvers
 
 import (
 	"context"
+	"server/app/graphql/gqlTypes/fateskinkTypes"
 	fateskinktypes "server/app/graphql/gqlTypes/fateskinkTypes"
 	"server/app/graphql/gqlTypes/globalTypes"
 	"server/app/graphql/inputs/globalInputs"
@@ -12,7 +13,7 @@ import (
 func (r *Resolver) Articles(
 	ctx context.Context, args globalInputs.ArtilcesInput,
 ) (
-	*fateskinktypes.ArticlesCollectionPayloadType, error,
+	*fateskinkTypes.ArticlesCollectionPayloadType, error,
 ) {
 	var articles []*models.Article
 	paginationData, articlesQuery := args.ToPaginationDatAndQuery()

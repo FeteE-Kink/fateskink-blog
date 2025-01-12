@@ -7,7 +7,7 @@ type Article struct {
 	Title     string
 	Content   string
 	UserId    int32
-	Status    string
+	Status    int32
 	Slug      string
 	Tags      []*Tag `gorm:"many2many:articles_tags;"`
 	CreatedAt time.Time

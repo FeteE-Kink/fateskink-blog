@@ -1,4 +1,4 @@
-package fateskinktypes
+package fateskinkTypes
 
 import (
 	"fmt"

@@ -3,6 +3,7 @@ package fateskinkResolvers
 import (
 	"context"
 	"server/app/exceptions"
+	fateskinkTypes "server/app/graphql/gqlTypes/fateskinkTypes"
 	fateskinktypes "server/app/graphql/gqlTypes/fateskinkTypes"
 	"server/app/models"
 	"server/app/pkg/helpers"
@@ -14,7 +15,7 @@ import (
 
 func (r *Resolver) Article(
 	ctx context.Context, args struct{ ID graphql.ID },
-) (*fateskinktypes.ArticlePayloadType, error) {
+) (*fateskinkTypes.ArticlePayloadType, error) {
 	if args.ID == "" {
 		return nil, exceptions.NewBadRequestError("Invalid Id")
 	}

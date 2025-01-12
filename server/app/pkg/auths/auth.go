@@ -2,6 +2,7 @@ package auths
 
 import (
 	"context"
+	"fmt"
 	"server/app/database"
 	"server/app/exceptions"
 	"server/app/models"
@@ -66,4 +67,30 @@ func GinContextToContextMiddleware() gin.HandlerFunc {
 		c.Request = c.Request.WithContext(ctx)
 		c.Next()
 	}
+}
+
+func GinContextFormContext(ctx context.Context) (*gin.Context, error) {
+	ginContext := ctx.Value(constants.GinContextKey)
+	if ginContext == nil {
+		err := fmt.Errorf("Cound not retieve gin.Context")
+		return nil, err
+	}
+
+	gc, ok := ginContext.(*gin.Context)
+	if !ok {
+		err := fmt.Errorf("gin.Context has wrong type")
+		return nil, err
+	}
+	return gc, nil
+}
+
+func AuthAdminFormCtx(ctx context.Context) (*models.User, error) {
+	gc, _ := GinContextFormContext(ctx)
+
+	currentUser := gc.Value(constants.ContextCurrentUser)
+	if currentUser == nil {
+		return nil, exceptions.NewUnauthorizedError("unauthorized")
+	}
+
+	return currentUser.(*models.User), nil
 }
